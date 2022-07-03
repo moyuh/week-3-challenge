@@ -73,22 +73,20 @@ const specialCharactersArr = [
   "=",
   "+"
 ];
-// upper and lowercase 
-// const lowerUpperCase = lowerCase.concat(upperCase);
-// special and numbers 
-// const specialNumbers = specialCharacters.concat(numeric); 
-
+//Function Generate Password
 function generatePassword() {
-  // needs to prompt user for length of password
+  // Needs to prompt user for length of password
   let generatedPassword = "";
   let passwordLength = prompt("What length would you like your password to be?", "Between 8-128");
   let chosenLength = parseInt(passwordLength)
   if(chosenLength < 129 && passwordLength > 7){
-  // Confirms for Upper Case, Lower Case, Special Characters, and numericals. =>booleans (confirm then if else)
+  // Confirms for Upper Case, Lower Case, Special Characters, and numericals. 
   let lowerCase = confirm("Would you like to use Lower Case Characters?");
   let upperCase = confirm("Would you like to use Upper Case Characters?");
   let numeric = confirm("Would you like to use Numeric Characters?");
   let specialCharacters = confirm("Would you like to use Special Characters?");
+  // Validate input and make sure at least one character type was selected.
+
   if(!lowerCase && !upperCase && !numeric && !specialCharacters) {
     alert("Please select the characters you would like in your password.");
     return null;
@@ -106,9 +104,9 @@ function generatePassword() {
       if (specialCharacters == true){
         charsForPass= charsForPass.concat(specialCharactersArr);
       }
-      //logic below
+      // Logic below to generate password based off of users selections,
       for (let index = 0; index < chosenLength; index++) {
-        //grab random character based on specifications
+        // Grab random character based on selections
         const randChar =charsForPass[Math.floor(Math.random() * charsForPass.length)];
       
         generatedPassword += randChar;
@@ -117,10 +115,9 @@ function generatePassword() {
     } else {
       alert("You need to choose number between 8 and 128");
     }
-     // Validate input and make sure at least one character type was selected (if, else)
+     
     
-  // return a value to the password box
-  console.log(generatedPassword);
+  // Return a value to the password box
   return generatedPassword;
 }
 
@@ -135,13 +132,7 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-//Assign arrays
-//Function Generate Password
-    // needs to prompt user for length of password
-    // Confirms for Upper Case, Lower Case, Special Characters, and numericals. =>booleans (confirm then if else)
-    // Validate input and make sure at least one character type was selected (if, else)
-    // Generate password based off of users selections, UNIQUE MATH <3
-    // Return Password to box
-
+   
+   
+    
     
